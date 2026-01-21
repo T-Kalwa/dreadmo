@@ -1,0 +1,171 @@
+{
+    "users": [
+        {
+            "id": "user-1",
+            "email": "contact@studiotexture.com",
+            "name": "Studio Texture",
+            "password": "password123",
+            "role": "PRO"
+        }
+    ],
+    "salons": [
+        {
+            "id": "salon-1",
+            "name": "Studio Texture",
+            "description": "Spécialisé dans les cheveux texturés, bouclés et crépus. Notre équipe d'experts vous accompagne pour sublimer votre texture naturelle avec des produits de qualité et des techniques adaptées.",
+            "address": "4520 Avenue du Parc",
+            "city": "Montréal",
+            "district": "Le Plateau-Mont-Royal",
+            "rating": 4.9,
+            "reviewCount": 124,
+            "phone": "+1 (514) 555-0123",
+            "email": "contact@studiotexture.ca",
+            "instagram": "@studiotexture",
+            "image": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80",
+            "category": "Cheveux Texturés",
+            "ownerId": "user-1",
+            "specialties": [
+                "Cheveux Bouclés (3A-3C)",
+                "Cheveux Crépus (4A-4C)",
+                "Tresses",
+                "Locs"
+            ],
+            "gallery": [
+                "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80"
+            ],
+            "hours": {
+                "lundi": "Fermé",
+                "mardi": "10h - 19h",
+                "mercredi": "10h - 19h",
+                "jeudi: ": "10h - 20h",
+                "vendredi": "10h - 20h",
+                "samedi": "9h - 18h",
+                "dimanche": "10h - 17h"
+            },
+            "reviews": [
+                {
+                    "id": 1,
+                    "author": "Marie L.",
+                    "rating": 5,
+                    "date": "Il y a 2 jours",
+                    "comment": "Meilleure expérience capillaire à Montréal! Ils comprennent vraiment les cheveux 4C."
+                },
+                {
+                    "id": 2,
+                    "author": "Jasmine K.",
+                    "rating": 5,
+                    "date": "Il y a 1 semaine",
+                    "comment": "Ambiance chaleureuse et professionnelle. Mes boucles n'ont jamais été aussi belles!"
+                }
+            ]
+        }
+    ],
+    "services": [
+        {
+            "id": "srv-1",
+            "name": "Coupe + Styling",
+            "price": 75,
+            "duration": "1h30",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-2",
+            "name": "Box Braids",
+            "price": 150,
+            "duration": "4h00",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-3",
+            "name": "Soin Hydratant Profond",
+            "price": 55,
+            "duration": "1h00",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-4",
+            "name": "Wash & Go (Naturel)",
+            "price": 45,
+            "duration": "0h45",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-5",
+            "name": "Finger Coils",
+            "price": 65,
+            "duration": "1h15",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-6",
+            "name": "Tresses Fulani",
+            "price": 180,
+            "duration": "5h00",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-7",
+            "name": "Knotless Braids (Medium)",
+            "price": 200,
+            "duration": "6h00",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-8",
+            "name": "Twists / Vanilles",
+            "price": 85,
+            "duration": "2h00",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-9",
+            "name": "Coloration Complète",
+            "price": 120,
+            "duration": "3h00",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-10",
+            "name": "Balayage / Ombré",
+            "price": 140,
+            "duration": "3h30",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-11",
+            "name": "Soin Protéiné Intense",
+            "price": 70,
+            "duration": "1h15",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-12",
+            "name": "Starter Locs",
+            "price": 110,
+            "duration": "2h30",
+            "salonId": "salon-1"
+        },
+        {
+            "id": "srv-13",
+            "name": "Détox Capillaire",
+            "price": 40,
+            "duration": "0h45",
+            "salonId": "salon-1"
+        }
+    ],
+    "appointments": [
+        {
+            "id": "apt-1",
+            "date": "2026-01-21",
+            "time": "12:00",
+            "status": "CONFIRMED",
+            "userId": "user-client-1",
+            "salonId": "salon-1",
+            "serviceId": "srv-1",
+            "clientName": "Clara D."
+        }
+    ]
+}

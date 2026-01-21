@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String
+  role          String    @default("CLIENT")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  salons        Salon[]   @relation("Owner")
+  appointments  Appointment[]
+}
+
+model Salon {
+  id            String    @id @default(cuid())
+  name          String
+  description   String?
+  address       String
+  city          String    @default("Montréal")
+  district      String?
+  rating        Float     @default(0)
+  reviewCount   Int       @default(0)
+  phone         String?
+  email         String?
+  instagram     String?
+  image         String?
+  category      String?
+  specialties   String?   // Comma separated or JSON string
+  gallery       String?   // Comma separated or JSON string
+  hours         String?   // JSON string
+  ownerId       String
+  owner         User      @relation("Owner", fields: [ownerId], references: [id])
+  services      Service[]
+  appointments  Appointment[]
+  reviews       Review[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Service {
+  id            String    @id @default(cuid())
+  name          String
+  price         Float
+  duration      String
+  salonId       String
+  salon         Salon     @relation(fields: [salonId], references: [id])
+  appointments  Appointment[]
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  author    String
+  rating    Int
+  date      String
+  comment   String
+  salonId   String
+  salon     Salon    @relation(fields: [salonId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Appointment {
+  id            String    @id @default(cuid())
+  date          String
+  time          String
+  status        String    @default("PENDING")
+  userId        String
+  user          User      @relation(fields: [userId], references: [id])
+  salonId       String
+  salon         Salon     @relation(fields: [salonId], references: [id])
+  serviceId     String
+  service       Service   @relation(fields: [serviceId], references: [id])
+  clientName    String?
+  createdAt     DateTime  @default(now())
+}
