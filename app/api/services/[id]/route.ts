@@ -3,8 +3,9 @@ import { update, remove } from '@/lib/db';
 
 export async function PUT(
     req: Request,
-    { params }: { params: { id: string } }
+    props: { params: Promise<{ id: string }> }
 ) {
+    const params = await props.params;
     try {
         const body = await req.json();
         const service = update('services', params.id, {
@@ -20,8 +21,9 @@ export async function PUT(
 
 export async function DELETE(
     req: Request,
-    { params }: { params: { id: string } }
+    props: { params: Promise<{ id: string }> }
 ) {
+    const params = await props.params;
     try {
         remove('services', params.id);
         return NextResponse.json({ success: true });

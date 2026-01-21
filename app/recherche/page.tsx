@@ -59,37 +59,37 @@ const SearchPage = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 pt-20">
+    <div className="flex flex-col min-h-screen bg-gray-50 pt-20 pb-20 md:pb-0">
       {/* Barre de recherche et filtres */}
       <div className="bg-white border-b border-gray-100 sticky top-20 z-[90] shadow-sm backdrop-blur-xl bg-white/70">
-        <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6">
           {/* Barre de recherche principale */}
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
+          <div className="flex flex-col md:flex-row gap-3 md:gap-4 mb-4 md:mb-6">
             <div className="flex-1 relative group">
-              <SearchIcon className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-black transition-colors" size={20} />
+              <SearchIcon className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-black transition-colors" size={18} />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Rechercher par expert, salon ou texture..."
-                className="w-full pl-14 pr-6 py-5 bg-gray-50 border border-gray-100 rounded-[2rem] focus:outline-none focus:border-amber-400 focus:bg-white transition-all font-bold text-gray-900 placeholder:text-gray-300 shadow-inner"
+                placeholder="Style, Salon, Texture..."
+                className="w-full pl-12 pr-6 py-4 md:py-5 bg-gray-50 border border-gray-100 rounded-2xl md:rounded-[2rem] focus:outline-none focus:border-amber-400 focus:bg-white transition-all font-bold text-gray-900 placeholder:text-gray-300 text-sm"
               />
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center justify-center gap-3 bg-black text-white px-10 py-5 rounded-[2rem] hover:bg-gray-800 transition-all font-black uppercase text-xs tracking-widest shadow-xl"
+              className="flex items-center justify-center gap-3 bg-black text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl md:rounded-[2rem] hover:bg-gray-800 transition-all font-black uppercase text-[10px] md:text-xs tracking-widest shadow-xl"
             >
-              <Filter size={18} className="text-amber-400" />
-              Filtres Elite
+              <Filter size={16} className="text-amber-400" />
+              Filtres
             </button>
           </div>
 
           {/* Filtres rapides */}
-          <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-            {['Tous', 'Salons', 'Freelances', 'Mieux notés', 'Disponibilités'].map((label, idx) => (
+          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+            {['Tous', 'Salons', 'Freelances', 'Elite', 'Dispo'].map((label, idx) => (
               <button
                 key={idx}
-                className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest whitespace-nowrap transition-all border ${idx === 0
+                className={`px-5 py-2 rounded-full text-[9px] font-black uppercase tracking-widest whitespace-nowrap transition-all border ${idx === 0
                   ? 'bg-black text-white border-black'
                   : 'bg-white text-gray-400 border-gray-100 hover:border-black hover:text-black'
                   }`}
@@ -99,26 +99,26 @@ const SearchPage = () => {
             ))}
           </div>
 
-          {/* Elite Advanced Filters */}
+          {/* Elite Advanced Filters - Mobile Optimized */}
           {showFilters && (
-            <div className="mt-8 p-10 bg-gray-50 rounded-[3rem] border border-gray-100 animate-in fade-in slide-in-from-top-4 duration-500">
-              <div className="flex justify-between items-center mb-10">
-                <h3 className="text-2xl font-black italic uppercase tracking-tighter">Filtres <span className="text-amber-500">Avancés</span></h3>
-                <button onClick={() => setShowFilters(false)} className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-black hover:text-white transition-all shadow-sm">
-                  <X size={20} />
+            <div className="mt-4 md:mt-8 p-6 md:p-10 bg-gray-50 rounded-3xl md:rounded-[3rem] border border-gray-100 animate-in fade-in slide-in-from-top-4 duration-500">
+              <div className="flex justify-between items-center mb-8 md:mb-10">
+                <h3 className="text-xl md:text-2xl font-black italic uppercase tracking-tighter">Filtres <span className="text-amber-500">Avancés</span></h3>
+                <button onClick={() => setShowFilters(false)} className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+                  <X size={16} />
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-6 underline decoration-amber-500/30 underline-offset-8">Texture Capillaire</label>
-                  <div className="space-y-3">
+                  <label className="block text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-4 md:mb-6 underline decoration-amber-500/30 underline-offset-8">Texture Capillaire</label>
+                  <div className="grid grid-cols-1 gap-3">
                     {hairTypes.map((type) => (
-                      <label key={type.name} className="flex items-center gap-4 cursor-pointer group">
+                      <label key={type.name} className="flex items-center gap-3 cursor-pointer group">
                         <div className="relative flex items-center justify-center">
                           <input
                             type="checkbox"
-                            className="peer h-6 w-6 cursor-pointer appearance-none rounded-lg border-2 border-gray-200 transition-all checked:border-amber-500 checked:bg-amber-500"
+                            className="peer h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-gray-200 transition-all checked:border-amber-500 checked:bg-amber-500"
                             checked={filters.hairType.includes(type.name)}
                             onChange={(e) => {
                               const newTypes = e.target.checked
@@ -127,50 +127,50 @@ const SearchPage = () => {
                               setFilters({ ...filters, hairType: newTypes });
                             }}
                           />
-                          <Check size={14} className="absolute text-black opacity-0 peer-checked:opacity-100 transition-opacity" />
+                          <Check size={12} className="absolute text-black opacity-0 peer-checked:opacity-100 transition-opacity" />
                         </div>
-                        <span className="text-gray-400 group-hover:text-black transition-colors font-bold text-sm tracking-tight">{type.name}</span>
+                        <span className="text-gray-400 group-hover:text-black transition-colors font-bold text-xs tracking-tight">{type.name}</span>
                       </label>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-6 underline decoration-amber-500/30 underline-offset-8">Quartier Montréal</label>
+                  <label className="block text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-4 md:mb-6 underline decoration-amber-500/30 underline-offset-8">Quartier Montréal</label>
                   <div className="relative group">
-                    <select className="w-full appearance-none bg-white border border-gray-200 rounded-2xl px-6 py-4 focus:outline-none focus:border-amber-500 font-bold text-sm tracking-tight shadow-sm cursor-pointer">
+                    <select className="w-full appearance-none bg-white border border-gray-200 rounded-xl px-5 py-4 focus:outline-none focus:border-amber-500 font-bold text-xs tracking-tight shadow-sm cursor-pointer">
                       <option value="all">Tous les secteurs</option>
                       {districts.map((district) => (
                         <option key={district} value={district}>{district}</option>
                       ))}
                     </select>
-                    <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none group-hover:text-black transition-colors" />
+                    <ChevronDown size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none group-hover:text-black transition-colors" />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-6 underline decoration-amber-500/30 underline-offset-8">Budget Prestation</label>
+                  <label className="block text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-4 md:mb-6 underline decoration-amber-500/30 underline-offset-8">Budget Prestation</label>
                   <div className="relative group">
-                    <select className="w-full appearance-none bg-white border border-gray-200 rounded-2xl px-6 py-4 focus:outline-none focus:border-amber-500 font-bold text-sm tracking-tight shadow-sm cursor-pointer">
+                    <select className="w-full appearance-none bg-white border border-gray-200 rounded-xl px-5 py-4 focus:outline-none focus:border-amber-500 font-bold text-xs tracking-tight shadow-sm cursor-pointer">
                       <option value="all">Tous les prix</option>
                       <option value="0-50">Budget Access</option>
                       <option value="50-100">Premium</option>
                       <option value="100+">Exclusif</option>
                     </select>
-                    <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none group-hover:text-black transition-colors" />
+                    <ChevronDown size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none group-hover:text-black transition-colors" />
                   </div>
                 </div>
               </div>
 
-              <div className="mt-12 flex gap-4 pt-10 border-t border-gray-100">
-                <button className="px-10 py-4 bg-black text-white rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-gray-800 transition-all shadow-xl shadow-gray-200">
-                  Appliquer la sélection
+              <div className="mt-8 flex flex-col md:flex-row gap-3 pt-8 border-t border-gray-100">
+                <button className="w-full md:w-auto px-8 py-4 bg-black text-white rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-gray-800 transition-all shadow-xl">
+                  Appliquer
                 </button>
                 <button
                   onClick={() => setFilters({ ...filters, hairType: [], priceRange: 'all', type: 'all' })}
-                  className="px-10 py-4 bg-white border border-gray-100 text-gray-400 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:border-black hover:text-black transition-all"
+                  className="w-full md:w-auto px-8 py-4 bg-white border border-gray-100 text-gray-400 rounded-xl font-black uppercase text-[10px] tracking-widest hover:border-black hover:text-black transition-all"
                 >
-                  Réinitialiser
+                  RAZ
                 </button>
               </div>
             </div>

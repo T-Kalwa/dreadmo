@@ -34,79 +34,79 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20 pb-16 px-4 overflow-hidden bg-white">
+    <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center pt-24 pb-16 px-4 overflow-hidden bg-white">
       {/* Background Decor */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div
-          className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-amber-200/40 rounded-full blur-[120px]"
+          className="absolute top-[-5%] right-[-5%] w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-amber-200/40 rounded-full blur-[100px] md:blur-[120px]"
           style={{ transform: `translateY(${scrolled * 0.2}px)` }}
         ></div>
         <div
-          className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-gray-100 rounded-full blur-[100px]"
+          className="absolute bottom-[-5%] left-[-5%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-gray-100 rounded-full blur-[80px] md:blur-[100px]"
           style={{ transform: `translateY(${scrolled * -0.1}px)` }}
         ></div>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center relative z-10">
         {/* Left Content */}
-        <div className="lg:col-span-7 space-y-10">
-          <div className="inline-flex items-center gap-2 bg-black/5 backdrop-blur-md border border-black/5 px-4 py-2 rounded-full animate-fade-in">
-            <Sparkles size={16} className="text-amber-500" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-black/60">
+        <div className="lg:col-span-7 space-y-8 md:space-y-10 text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 bg-black/5 backdrop-blur-md border border-black/5 px-4 py-2 rounded-full animate-fade-in mx-auto lg:mx-0">
+            <Sparkles size={14} className="text-amber-500" />
+            <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-black/60">
               L'excellence à Montréal
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-9xl font-black text-gray-900 leading-[0.85] tracking-tighter">
+          <h1 className="text-5xl md:text-9xl font-black text-gray-900 leading-[0.9] md:leading-[0.85] tracking-tighter">
             SUBLIMEZ <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-black via-gray-700 to-amber-600">
               VOTRE NATURE.
             </span>
           </h1>
 
-          <p className="text-xl text-gray-500 max-w-xl leading-relaxed font-medium italic">
-            L'écosystème montréalais qui regroupe l'élite des salons et des stylistes freelances. Trouvez l'expert qui maîtrise enfin votre texture unique, du studio de prestige au créateur indépendant.
+          <p className="text-lg md:text-xl text-gray-500 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium italic">
+            L'écosystème montréalais qui regroupe l'élite des salons et des stylistes freelances. Trouvez l'expert qui maîtrise enfin votre texture unique.
           </p>
 
           {/* Search Bar - Luxury Glass */}
-          <div className="relative group max-w-2xl">
+          <div className="relative group max-w-2xl mx-auto lg:mx-0 w-full px-2 md:px-0">
             <form
               onSubmit={handleSearch}
-              className="bg-white border border-gray-100 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] rounded-[2.5rem] p-4 flex flex-col md:flex-row items-center gap-2"
+              className="bg-white border border-gray-100 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] md:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] rounded-3xl md:rounded-[2.5rem] p-2 md:p-4 flex flex-col md:flex-row items-center gap-1 md:gap-2"
             >
-              <div className="flex-1 w-full relative group/input p-4">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within/input:text-black transition-colors" size={20} />
+              <div className="flex-1 w-full relative group/input p-3 md:p-4">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within/input:text-black transition-colors" size={18} />
                 <input
                   type="text"
                   value={hairType}
                   onChange={(e) => setHairType(e.target.value)}
-                  placeholder="Texture ou service..."
-                  className="w-full pl-8 outline-none text-gray-900 font-bold bg-transparent placeholder:text-gray-300"
+                  placeholder="Style ou Texture..."
+                  className="w-full pl-8 outline-none text-gray-900 font-bold bg-transparent placeholder:text-gray-300 text-sm md:text-base"
                 />
               </div>
               <div className="hidden md:block w-px h-10 bg-gray-100"></div>
-              <div className="flex-1 w-full relative group/input p-4">
-                <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within/input:text-black transition-colors" size={20} />
+              <div className="flex-1 w-full relative group/input p-3 md:p-4 border-t md:border-t-0 border-gray-50">
+                <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within/input:text-black transition-colors" size={18} />
                 <input
                   type="text"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  placeholder="Quartier..."
-                  className="w-full pl-8 outline-none text-gray-900 font-bold bg-transparent placeholder:text-gray-300"
+                  placeholder="Localisation..."
+                  className="w-full pl-8 outline-none text-gray-900 font-bold bg-transparent placeholder:text-gray-300 text-sm md:text-base"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full md:w-auto bg-black text-white px-12 py-6 rounded-[1.8rem] font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-gray-800 transition-all shadow-xl active:scale-95 group/btn"
+                className="w-full md:w-auto bg-black text-white px-8 md:px-12 py-5 md:py-6 rounded-2xl md:rounded-[1.8rem] font-black uppercase tracking-widest text-[10px] md:text-xs flex items-center justify-center gap-3 hover:bg-gray-800 transition-all shadow-xl active:scale-95 group/btn"
               >
-                Explorer
+                Chercher
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
           </div>
 
-          <div className="flex flex-wrap gap-4 items-center">
-            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Inspiration :</span>
+          <div className="flex flex-wrap gap-2 md:gap-4 items-center justify-center lg:justify-start">
+            <span className="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-full md:w-auto mb-2 md:mb-0">Inspiration :</span>
             {popularSearches.map((search, idx) => (
               <button
                 key={idx}
@@ -114,7 +114,7 @@ const Hero = () => {
                   setHairType(search.type);
                   router.push(`/recherche?type=${search.type}`);
                 }}
-                className="flex items-center gap-2 px-5 py-2.5 bg-gray-50 border border-gray-100 text-gray-500 rounded-full text-[10px] font-black uppercase tracking-wider hover:bg-black hover:text-white transition-all transform hover:-translate-y-1"
+                className="flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 bg-gray-50 border border-gray-100 text-gray-500 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-wider hover:bg-black hover:text-white transition-all transform hover:-translate-y-1"
               >
                 {search.icon}
                 {search.label}
@@ -123,8 +123,8 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Content - Image Composition */}
-        <div className="lg:col-span-5 relative h-[650px] hidden lg:block">
+        {/* Right Content - Image Composition - Simplified for tablet, hidden on mobile */}
+        <div className="lg:col-span-5 relative h-[500px] md:h-[650px] hidden md:block">
           {/* Main Image */}
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[550px] rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] z-20 border-8 border-white"
