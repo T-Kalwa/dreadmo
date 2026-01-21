@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { MapPin, Filter, Search as SearchIcon, Star, Briefcase, Home, X, ChevronDown, Loader2, AlignJustify, Waves, Wind, Sparkles, ArrowRight, Check } from 'lucide-react';
 import Link from 'next/link';
 
-const SearchPage = () => {
+const SearchContent = () => {
   const searchParams = useSearchParams();
   const initialType = searchParams.get('type') || 'all';
 
@@ -301,6 +301,18 @@ const SearchPage = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const SearchPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-screen bg-gray-50">
+        <Loader2 className="animate-spin text-black" size={32} />
+      </div>
+    }>
+      <SearchContent />
+    </Suspense>
   );
 };
 
